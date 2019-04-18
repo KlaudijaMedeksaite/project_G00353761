@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {Storage} from '@ionic/storage';
-import { stringify } from '@angular/core/src/render3/util';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Component({
   selector: 'page-about',
@@ -11,7 +9,7 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 export class AboutPage {
 
 
-  constructor(public navCtrl: NavController, private storage:Storage) {
+  constructor(public navCtrl: NavController, private storage:Storage, private httpclient:HttpClient) {
 
   }
 
@@ -38,7 +36,9 @@ currency2:string;
     {
       if(this.currency2 === "sterling")
       {
-
+        
+          
+          
       }
       else if(this.currency2 === "USD")
       {
