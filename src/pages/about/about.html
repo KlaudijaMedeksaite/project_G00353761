@@ -1,11 +1,41 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Currency Conversion
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+    <h2>Convert currency here:</h2>
+    <ion-input class="inputs" [(ngModel)]="money"></ion-input>
 
+    <ion-list>
+        <ion-item>
+          <ion-label>Currencies</ion-label>
+          <ion-select [(ngModel)]="currency1">
+            <ion-option value="euro">Euro</ion-option>
+            <ion-option value="sterling">Sterling</ion-option>
+            <ion-option value="USD">US Dollar</ion-option>
+            <ion-option value="AUD">Australian Dollar</ion-option>
+            <ion-option value="CAD">Canadian Dollar</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+          <ion-item>
+            <ion-label>Currencies</ion-label>
+            <ion-select [(ngModel)]="currency2">
+              <ion-option value="euro">Euro</ion-option>
+              <ion-option value="sterling">Sterling</ion-option>
+              <ion-option value="USD">US Dollar</ion-option>
+              <ion-option value="AUD">Australian Dollar</ion-option>
+              <ion-option value="CAD">Canadian Dollar</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      
+
+    <button ion-button (click)="onClick()">Convert</button>
+    <ion-label class="inputs" >{{converted}}</ion-label>
 </ion-content>
