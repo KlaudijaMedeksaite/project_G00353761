@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {Storage} from '@ionic/storage';
+import {CurrencyProvider} from '../../providers/currency/currency';
+
+
 
 @Component({
   selector: 'page-about',
   templateUrl: 'about.html'
 })
 export class AboutPage {
-
-
-  constructor(public navCtrl: NavController, private storage:Storage, private httpclient:HttpClient) {
-
+  rates: any;
+  constructor(public navCtrl: NavController, private storage:Storage, private exR:CurrencyProvider) {
+    
   }
 
 converted : number = 0.00;
@@ -35,14 +37,14 @@ currency2:string;
     else if(this.currency1 === "euro")
     {
       if(this.currency2 === "sterling")
-      {
-        
-          
-          
+      {   
       }
       else if(this.currency2 === "USD")
       {
-
+        this.rates = this.exR.getEURUSDRate();
+        this.converted = (this.money * this.rates);
+        console.log(this.rates);
+                
       }
       else if(this.currency2 === "CAD")
       {
@@ -129,6 +131,5 @@ currency2:string;
         
       }
     }
-
   }
 }
