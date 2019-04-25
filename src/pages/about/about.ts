@@ -185,7 +185,7 @@ currency2:string;
          .then((data) =>
      {
       this.storedConversion = data;
-      
+  
       })
       .catch((err) => {
       alert("Error accesssing Storage")
