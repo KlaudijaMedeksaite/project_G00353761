@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {Storage} from '@ionic/storage';
 import {CurrencyProvider} from '../../providers/currency/currency';
-
+import { Events } from 'ionic-angular';
 
 
 @Component({
@@ -11,10 +11,11 @@ import {CurrencyProvider} from '../../providers/currency/currency';
 })
 export class AboutPage {
   rates: any;
-  constructor(public navCtrl: NavController, private storage:Storage, private exR:CurrencyProvider) {
+  constructor(public navCtrl: NavController, private storage:Storage, private exR:CurrencyProvider, public events:Events) {
     
   }
 
+storedConversion: number;
 converted : number = 0.00;
 cur1 : any;
 cur2 : any;
@@ -161,6 +162,8 @@ currency2:string;
         this.rates = this.exR.getAUDCADRate();
         this.converted = ((this.money * this.rates)/100);
         console.log("rate euro to AUD: " + this.rates);
+
+
       }
       else if(this.currency2 === "sterling")
       {
@@ -170,4 +173,22 @@ currency2:string;
       }
     }
   }
+
+  private storeClick()
+  {
+    this.storage.set("storedConversion", this.converted);
+    
+  }
+
+  ionViewWillEnter(){
+    this.storage.get("storedConversion") 
+         .then((data) =>
+     {
+      this.storedConversion = data;
+      
+      })
+      .catch((err) => {
+      alert("Error accesssing Storage")
+      })
+    }
 }
