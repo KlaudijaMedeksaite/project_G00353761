@@ -29,8 +29,7 @@ currency2:string;
   private onClick()
   {
 
-    //have to use storage think of something
-
+    //ifs for all the different selections of conversion
     if(this.currency1===this.currency2)
     {
       this.converted = this.money;
@@ -179,6 +178,7 @@ currency2:string;
     this.storage.set("storedConversion", this.converted);
   }
 
+  //storage on load of page
   ionViewDidLoad(){
     this.storage.get("storedConversion") 
          .then((data) =>
