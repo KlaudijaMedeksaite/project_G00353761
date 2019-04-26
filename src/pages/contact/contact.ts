@@ -11,5 +11,20 @@ export class ContactPage {
   constructor(public navCtrl: NavController, private storage : Storage) {
    
   }
+  result = '';
+
+  onClick(butN)
+  {
+    if(butN == 'C'){
+      this.result = '';
+    }
+    else if(butN == '='){
+      this.result = eval(this.result);
+    }
+    else{
+      this.result+=butN;
+    }
+  }
+
   
 }

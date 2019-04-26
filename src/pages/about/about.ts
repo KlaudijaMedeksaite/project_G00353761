@@ -177,15 +177,13 @@ currency2:string;
   private storeClick()
   {
     this.storage.set("storedConversion", this.converted);
-    
   }
 
-  ionViewWillEnter(){
+  ionViewDidLoad(){
     this.storage.get("storedConversion") 
          .then((data) =>
      {
       this.storedConversion = data;
-  
       })
       .catch((err) => {
       alert("Error accesssing Storage")

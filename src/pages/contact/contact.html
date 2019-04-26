@@ -7,34 +7,32 @@
 </ion-header>
 
 <ion-content>
-  <ion-label class="label">{{total}}</ion-label>
- <ion-grid>
-   <ion-row>
-     <ion-col><button ion-button class="buttons">1</button></ion-col>
-     <ion-col><button ion-button class="buttons">2</button></ion-col>
-     <ion-col><button ion-button class="buttons">3</button></ion-col>
-     <ion-col><button ion-button class="buttons">C</button></ion-col>
-   </ion-row>
-   <ion-row>
-    <ion-col><button ion-button class="buttons">4</button></ion-col>
-    <ion-col><button ion-button class="buttons">5</button></ion-col>
-    <ion-col><button ion-button class="buttons">6</button></ion-col>
-    <ion-col><button ion-button class="buttons">CE</button></ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col><button ion-button class="buttons">7</button></ion-col>
-    <ion-col><button ion-button class="buttons">8</button></ion-col>
-    <ion-col><button ion-button class="buttons">9</button></ion-col>
-    <ion-col><button ion-button class="buttons">*</button></ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col><button ion-button class="buttons">0</button></ion-col>
-    <ion-col><button ion-button class="buttons">-</button></ion-col>
-    <ion-col><button ion-button class="buttons">+</button></ion-col>
-    <ion-col><button ion-button class="buttons">/</button></ion-col>
-  </ion-row>
-  <ion-row>
-    <button ion-button class="eButton">=</button>
-  </ion-row>
- </ion-grid>
+  <ion-input class="label" [(ngModel)] = "result"></ion-input>
+  <div class="calculator">
+    <button ion-button class="buttons" color="secondary" (click)="onClick('1')">1</button>
+    <button ion-button class="buttons" color="secondary" (click)="onClick('2')">2</button>
+    <button ion-button class="buttons" color="secondary" (click)="onClick('3')">3</button>
+    <button ion-button class="buttons" (click)="onClick('C')">C</button>
+  </div>
+  <div class="calculator">
+    <button ion-button class="buttons" color="secondary" (click)="onClick('4')">4</button>
+    <button ion-button class="buttons" color="secondary" (click)="onClick('5')">5</button>
+    <button ion-button class="buttons" color="secondary" (click)="onClick('6')">6</button>
+    <button ion-button class="buttons" (click)="onClick('*')">*</button>
+  </div>
+  <div class="calculator">
+    <button ion-button class="buttons" color="secondary" (click)="onClick('7')">7</button>
+    <button ion-button class="buttons" color="secondary" (click)="onClick('8')">8</button>
+    <button ion-button class="buttons" color="secondary" (click)="onClick('9')">9</button>
+    <button ion-button class="buttons" (click)="onClick('/')">/</button>
+  </div>
+  <div class="calculator">
+    <button ion-button class="buttons" color="secondary" (click)="onClick('0')">0</button>
+    <button ion-button class="buttons" (click)="onClick('+')">+</button>
+    <button ion-button class="buttons" (click)="onClick('-')">-</button>
+    <button ion-button class="buttons" (click)="onClick('.')">.</button>
+  </div>
+  <div>
+    <button ion-button class="eButton" (click)="onClick('=')">=</button>
+  </div>
 </ion-content>
